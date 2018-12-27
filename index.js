@@ -1640,4 +1640,4 @@ Client.fetch('http://www.google.com/search', { q: message.content.slice(7) }, fu
 
   }
 }); 
-client.login(process.env.TOKEN);
+client.login(process.env['DISCORD_BOT_TOKEN']);
