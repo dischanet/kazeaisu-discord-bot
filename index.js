@@ -280,18 +280,18 @@ client.on("ready", () => {
                |  _  | / _ \| || | / _ \ \n\
                | | | ||  __/| || || (_) |\n\
                \_| |_/ \___||_||_| \___/')
-  client.user.setActivity(config.prefix+"help"+`|Xmas|${client.guilds.size}サーバーで稼働中`);
+  client.user.setActivity(config.prefix+"help"+`|:bamboo:年末:bamboo:|${client.guilds.size}サーバーで稼働中`);
 });
 //サーバーに入った
 client.on("guildCreate", guild => {
   console.log(`新しいサーバーに入ったよ！: ${guild.name} (id: ${guild.id}). このサーバーには ${guild.memberCount} メンバーがいるよ！`)
-  client.user.setActivity(config.prefix+" help"+`|Xmas|${client.guilds.size}サーバーで稼働中`);
+  client.user.setActivity(config.prefix+" help"+`|:bamboo:年末:bamboo:|${client.guilds.size}サーバーで稼働中`);
  client.users.get(config.ownerID).send(`新しいサーバーに入ったよ！: ${guild.name} (id: ${guild.id}). このサーバーには ${guild.memberCount} メンバーがいるよ！`)
 });
 //サーバーから蹴られた
 client.on("guildDelete", guild => {
   console.log(` ${guild.name}サーバーからkickかbanされたよ！ (id: ${guild.id})`)
-  client.user.setActivity(config.prefix+" help"+`|Xmas|${client.guilds.size}サーバーで稼働中`)
+  client.user.setActivity(config.prefix+" help"+`|:bamboo:年末:bamboo:|${client.guilds.size}サーバーで稼働中`)
  .then(client.users.get(config.ownerID).send(`${guild.name}サーバーからkickかbanされたよ！ (id: ${guild.id})`))
 }); 
 //機能全般 main
