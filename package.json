@@ -1,0 +1,53 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "lil-sis-counter-dev",
+  "version": "0.0.1",
+  "description": "A discord bot, instantly up and running.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.3.22",
+    "discord.js": "github:discordjs/discord.js",
+    "discord.js-arbitrary-ffmpeg": "^1.0.0",
+    "docomo-api": "^0.0.3",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "fortnite": "4.1.1",
+    "fs": "0.0.1-security",
+    "g-i-s": "2.1.2",
+    "jquery": "^3.3.1",
+    "kuromoji": "^0.1.2",
+    "lowdb": "^1.0.0",
+    "node-record-lpcm16": "^0.3.0",
+    "opusscript": "0.0.6",
+    "request": "^2.88.0",
+    "voicetext": "0.0.7",
+    "weather-js": "^2.0.0",
+    "wikijs": "4.10.1",
+    "ytdl-core": "0.28.2",
+    "canvas": "2.2.0",
+    "http": "0.0.0",
+    "cheerio-httpcli": "0.7.3"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/ls-counter-dev"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express",
+    "discord.js",
+    "lowdb"
+  ]
+}
