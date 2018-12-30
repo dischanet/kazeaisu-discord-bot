@@ -178,7 +178,6 @@ if(command === 'eval') {
     message.channel.send(new Discord.MessageEmbed().setColor(Color).setTitle(`${message.author.username}はBotの管理者ではありません。故にevalコマンドを使用できません.`))
   }
      if(message.author.id !== config.ownerID) return;
-    message.delete();
        try{
        const code = message.content.substr(8, message.content.length);
        message.channel.send(eval(code))
@@ -238,22 +237,7 @@ client.on('message', async message => {
               .setDescription(message.content)
               .setFooter(message.guild.name + " - " + formatDate() , message.guild.iconURL())
               .setColor(Color)
-                channel.send(embed);
-              sleep(3600 , function () {
-                var m = "---------------------------tip----------------------------\n";
-                var tip = [m + "このチャンネルはたくさんのサーバーとつながっており、ここで送信をするとたくさんのサーバーに送信されます。\nマナーを守って使いましょう。"
-                          , m + "\`!t gazo\` (検索したいもの)で画像検索ができます。"
-                          , m + "\`!t wiki (調べたいもの) \`でWikiを使って調べることができます。"
-                          , m + "\`/p (流したい動画)\`で音楽などをVCで流せます。Rythmなどのキューはありません。"
-                          , m + "\`!tt (話しかけたいこと)\`で人工知能と対話できます。"
-                          , m + "\`!t w (天気を確認したい地名)\`で天気を確認することができます。"
-                          , m + "\`!t news\`でニュースを取得できます。"
-                          , m + "\`!t role \` で自分の権限を確認することができます。"
-                          , m + "\`!t poll (題名) (投票欄1) (投票欄2)・・・・\`でアンケートをすることができます。"
-                          , m + "\`!t youtube (検索したい動画の名前)\` でYoutubeを検索してURLを貰うことができます。"
-                          ]
-              channel.send(tip[Math.floor(Math.random() * tip.length)]);
-              })
+                channel.send(embed)
             }
         })
     }
@@ -1623,21 +1607,87 @@ message.channel.send('正解です！')
     message.channel.send('違います！！！正解は**' +a[q1]+'**でした！');
   } 
 }).catch(err => message.channel.send('時間切れです！正解は**' + a[q1] + '**でした!'))
+} if(command === "canvas") {
+    var canvas = Canvas.createCanvas( 300, 300 );
+    var ctx = canvas.getContext( '2d' );
+	       ctx.globalAlpha = 0.5;
 
-  } if(command === "test") {
+          let roundColor = () => {
+            return Math.floor(Math.random() * 255);
+          };
 
-// Googleで「node.js」について検索する。
-Client.fetch('http://www.google.com/search', { q: message.content.slice(7) }, function (err, $, res) {
-  // レスポンスヘッダを参照
- 
+          for (let i = 0; i < 100; i++) {
+            let x = Math.floor(Math.random() * 400);
+            let y = Math.floor(Math.random() * 200);
+            let r = Math.floor(Math.random() * 200);
 
-  // リンク一覧を表示
-  $('a').each(function (i,idx) {
-       if(i  >=  10) return false;
-  console.log($(this).attr('href'));
-  });
-});
+            ctx.fillStyle = `rgb(${roundColor()}, ${roundColor()}, ${roundColor()})`;
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, 2*Math.PI);
+            ctx.stroke();
+            ctx.fill();
+          }
+    ctx.font = 'bold 20px HG行書体';
+    ctx.fillStyle = 'red';
+    ctx.textAlign = 'left';
 
+    ctx.fillText(message.author.username, 20, 20);
+  ctx.fillStyle = 'red';
+  ctx.textAlign = 'left';
+    var b64 = canvas.toDataURL().split( ',' )[1];
+    var buf = new Buffer( b64, 'base64' );
+    fs.writeFile('xxx.png', buf, function(){
+      message.channel.send({
+        files: [{
+          attachment: './xxx.png',
+          name: 'canvas.png'
+        }]
+      })
+    });
+  } if(command === "canvas1"){
+    var canvas = Canvas.createCanvas( 300, 300 );
+    var ctx = canvas.getContext( '2d' );
+  //. 斜めに赤い線が１本引いてあるだけの画像を作る
+  ctx.beginPath();
+  ctx.moveTo( 100, 100 );
+  ctx.lineTo( 200, 200 );
+  ctx.strokeStyle = 'red';
+    ctx.stroke()
+    ctx.beginPath();
+    ctx.moveTo( 300, 200 );
+    ctx.lineTo( 200, 500 );
+    ctx.strokeStyle = 'red';
+      ctx.stroke()
+      ctx.beginPath();
+      ctx.arc(200, 30, 50, 0/180*Math.PI, 360/180*Math.PI);
+      ctx.stroke();
+        let g = ctx.createLinearGradient(0, 0, 100, 100);
+        g.addColorStop(0.0, 'red');
+        g.addColorStop(0.5, 'blue');
+        g.addColorStop(1.0, 'yellow');
+        ctx.fillStyle = g;
+        ctx.fillRect(10, 10, 100, 100);
+        ctx.fillStyle = "#FF00FF";
+        ctx.strokeStyle = "#0ff";
+        ctx.beginPath();
+        ctx.moveTo(50, 100);
+        ctx.lineTo(250, 100);
+        ctx.lineTo(85, 210);
+        ctx.lineTo(150,30);
+        ctx.lineTo(215, 210);
+        ctx.lineTo(50,100);
+        ctx.fill();
+        ctx.stroke();
+        var b64 = canvas.toDataURL().split( ',' )[1];
+        var buf = new Buffer( b64, 'base64' );
+        fs.writeFile('xxx.png', buf, function(){
+          message.channel.send({
+            files: [{
+              attachment: './xxx.png',
+              name: 'canvas.png'
+            }]
+          })
+        });
   }
 }); 
 client.login(process.env['DISCORD_BOT_TOKEN']);
