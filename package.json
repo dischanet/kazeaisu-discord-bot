@@ -5,9 +5,9 @@
   "name": "lil-sis-counter-dev",
   "version": "0.0.1",
   "description": "A discord bot, instantly up and running.",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "@types/jquery": "^3.3.22",
