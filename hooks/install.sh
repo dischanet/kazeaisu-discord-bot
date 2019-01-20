@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd /home/ec2-user/repos/kazeaisu-discord-bot
+npm install --production
 
 REGION=$(curl -s http://169.254.169.254/latest/meta-data/local-hostname | cut -d '.' -f2)
 PARAMETER_NAME=KAZEAISU_DISCORD_BOT_SECRET
